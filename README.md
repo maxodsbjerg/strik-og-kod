@@ -1,4 +1,4 @@
-# strik-og-kod
+# Strik og Kod
 
 Dette repositorie indeholder materialet fra workshoppen Strik og Kod fra AU Library, Det Kgl. Bibliotek.  
 
