@@ -1,0 +1,1 @@
+# strik-og-kod
