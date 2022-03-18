@@ -13,3 +13,5 @@ Er du interesseret? Så download S_K.Rmd og kør den chunk for chunk i din deskt
 # Nyttige links efter workshoppen
 * [Tidy Text Mining with R](https://www.tidytextmining.com)-bogen.
 * [Danish Newspaper API](http://labs.statsbiblioteket.dk/labsapi/api//api-docs?url=/labsapi/api/openapi.yaml)
+(Karoline fylder flere links på her) 
+
