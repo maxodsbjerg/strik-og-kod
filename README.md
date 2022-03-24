@@ -1,4 +1,9 @@
-# Links i undervisningen
+# Links til undervisningen
+## Kod dig selv
+https://knitty.com/ISSUEspring04/FEATgeekcode.html
+
+##
+
 
 # Strik og Kod
 
@@ -13,7 +18,13 @@ Er du interesseret? Så download S_K.Rmd og kør den chunk for chunk i din deskt
 ![](strikke_bigrams.png)
 
 # Nyttige links efter workshoppen
+* [The Knitter’s Geek Code](https://knitty.com/ISSUEspring04/FEATgeekcode.html)
+* [Random Stripe Generator, eksporter i HTML](http://www.biscuitsandjam.com/stripe_maker.php)
+* [Mariko Kosaka: Knitting for Javascripters](https://www.youtube.com/watch?v=X1Cc1vrvjdY&t=3s)
+* [Code Academy: Learn to Code for Free](https://www.codecademy.com/)
+* [R-Ladies: global organisation med fokus på kønsdiversitet i R-fællesskaber – Følg dem på Twitter her ](https://twitter.com/rladiesaarhus)
+* [Tekst mining-kursus med Max her på AUL](https://library.au.dk/arrangementer)
+* [Strik & Kod Notebook lavet af Max](http://hax.odsbjerg.dk/SK_handson_notesbog.html)
 * [Tidy Text Mining with R](https://www.tidytextmining.com)-bogen.
 * [Danish Newspaper API](http://labs.statsbiblioteket.dk/labsapi/api//api-docs?url=/labsapi/api/openapi.yaml)
-(Karoline fylder flere links på her) 
 
