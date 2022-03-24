@@ -1,8 +1,8 @@
 # Links til undervisningen
 ## Kod dig selv
 https://knitty.com/ISSUEspring04/FEATgeekcode.html
-
-##
+## Evaluering
+Hjælp os med at blive bedre og skarpere - https://www.survey-xact.dk/LinkCollector?key=ECMA55GAU51N
 
 
 # Strik og Kod
