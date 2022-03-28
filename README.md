@@ -18,18 +18,21 @@ Er du interesseret? Så download S_K.Rmd og kør den chunk for chunk i din deskt
 ![](strikke_bigrams.png)
 
 # Nyttige links under og efter workshoppen
-# Under: 
+## Under: 
 * [The Knitter’s Geek Code](https://knitty.com/ISSUEspring04/FEATgeekcode.html)
 * [Strik & Kod Notebook lavet af Max](http://hax.odsbjerg.dk/SK_handson_notesbog.html)
 * [Evaluering af kurset](https://www.survey-xact.dk/LinkCollector?key=ECMA55GAU51N)
-# Efter: 
+## Efter: 
+### Til inspiration
 * [Random Stripe Generator, eksporter i HTML](http://www.biscuitsandjam.com/stripe_maker.php)
 * [Mariko Kosaka: Knitting for Javascripters](https://www.youtube.com/watch?v=X1Cc1vrvjdY&t=3s)
 * [Code Academy: Learn to Code for Free](https://www.codecademy.com/)
 * [R-Ladies: global organisation med fokus på kønsdiversitet i R-fællesskaber – Følg dem på Twitter her ](https://twitter.com/rladiesaarhus)
 * [Tekst mining-kursus med Max her på AUL](https://library.au.dk/arrangementer)
+### Kom igang med din egen tekstmining
 * [Tidy Text Mining with R](https://www.tidytextmining.com)-bogen.
+* [Importer dine egne tekstfiler!](https://github.com/maxodsbjerg/ImportingTextFiles)
 * [Danish Newspaper API](http://labs.statsbiblioteket.dk/labsapi/api//api-docs?url=/labsapi/api/openapi.yaml)
 * [Cheatsheet til Mediestream-søgning](https://gist.github.com/maxodsbjerg/e2dd484d3c9dcaa9c422a861d6a93f6e#file-denspanskesyge-md)
-* [Importer dine egne tekstfiler!](https://github.com/maxodsbjerg/ImportingTextFiles)
+
 
