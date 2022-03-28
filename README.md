@@ -30,4 +30,5 @@ Er du interesseret? Så download S_K.Rmd og kør den chunk for chunk i din deskt
 * [Tekst mining-kursus med Max her på AUL](https://library.au.dk/arrangementer)
 * [Tidy Text Mining with R](https://www.tidytextmining.com)-bogen.
 * [Danish Newspaper API](http://labs.statsbiblioteket.dk/labsapi/api//api-docs?url=/labsapi/api/openapi.yaml)
+* [Cheatsheet til Mediestream-søgning](https://gist.github.com/maxodsbjerg/e2dd484d3c9dcaa9c422a861d6a93f6e#file-denspanskesyge-md)
 
