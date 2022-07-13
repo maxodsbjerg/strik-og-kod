@@ -17,13 +17,16 @@ Er du interesseret? Så download S_K.Rmd og kør den chunk for chunk i din deskt
 
 ![](strikke_bigrams.png)
 
-# Nyttige links under og efter workshoppen
+# Nyttige links/læsninger under og efter workshoppen
 ## Under: 
 * [The Knitter’s Geek Code](https://knitty.com/ISSUEspring04/FEATgeekcode.html)
 * [Strik & Kod Notebook lavet af Max](http://hax.odsbjerg.dk/SK_handson_notesbog.html)
 * [Evaluering af kurset](https://www.survey-xact.dk/LinkCollector?key=ECMA55GAU51N)
 ## Efter: 
 ### Til inspiration
+* [Knit, purl and upload: new technologies, digital mediations and the experience of leisure](https://www.tandfonline.com/doi/full/10.1080/02614367.2012.723730)
+* [Knitting Ourselves Into Being: the Case of Labour and Hip Domesticity on the Social Network Ravelry.com](https://www.semanticscholar.org/paper/Knitting-Ourselves-Into-Being%3A-the-Case-of-Labour-Hellstrom/2ac8f26e4f98ece3a2dea5c608589393da48acf1) 
+* [Secure Your Home IoT with the CryptoCrochetKey](https://criticalcode.recipes/contributions/secure-your-home-iot-with-the-cryptocrochetkey) 
 * [Random Stripe Generator, eksporter i HTML](http://www.biscuitsandjam.com/stripe_maker.php)
 * [Mariko Kosaka: Knitting for Javascripters](https://www.youtube.com/watch?v=X1Cc1vrvjdY&t=3s)
 * [Code Academy: Learn to Code for Free](https://www.codecademy.com/)
