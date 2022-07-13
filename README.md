@@ -33,7 +33,7 @@ Er du interesseret? Så download S_K.Rmd og kør den chunk for chunk i din deskt
 * [R-Ladies: global organisation med fokus på kønsdiversitet i R-fællesskaber – Følg dem på Twitter her ](https://twitter.com/rladiesaarhus)
 * [Tekst mining-kursus med Max her på AUL](https://library.au.dk/arrangementer)
 ### Kom igang med din egen tekstmining
-* [Tidy Text Mining with R](https://www.tidytextmining.com)-bogen.
+* [Tidy Text Mining with R](https://www.tidytextmining.com)
 * [Importer dine egne tekstfiler!](https://github.com/maxodsbjerg/ImportingTextFiles)
 * [Danish Newspaper API](http://labs.statsbiblioteket.dk/labsapi/api//api-docs?url=/labsapi/api/openapi.yaml)
 * [Cheatsheet til Mediestream-søgning](https://gist.github.com/maxodsbjerg/e2dd484d3c9dcaa9c422a861d6a93f6e#file-denspanskesyge-md)
