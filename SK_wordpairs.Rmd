@@ -52,7 +52,7 @@ Når man er tryg ved at afgrænse sine søgninger med søgekoder kan man bruge d
 
 I denne workshop har vi forberedt et API-kald der laver følgende søgning og returnerer det matchede som data:
 
-> strik\* AND py:[1840 TO 1850]
+> strik\* AND py:[1845 TO 1850]
 
 Denne søgning giver os altså artikler i avissamlingen i perioden 1840 til 1850, som indeholder ord der starter med "strik" og alle endelser. Derved får vi både "strikke", "strikning", "strikkede", "striktøj" og "strikketøj". Men vi får også ældre ord som "strikt" med.
 
@@ -65,7 +65,7 @@ I Mediestream ser søgningen således ud: ![](pics/mediestream_strik.png) Men n�
 I kodeboksen herunder bruger vi functionen `read_csv` til at læse det link vi har fået fra API'en. Denne læsning gemmer vi i et element, som vi kalder "strik"(det kunne også være "strikke_artikler_1840_1850", men vi kommer til at referere til det mange gange fremefter, så det er fedt, at det er kort og præcist):
 
 ```{r}
-strik <- read_csv("http://labs.statsbiblioteket.dk/labsapi/api/aviser/export/fields?query=strik%2A%20AND%20py%3A%5B1840%20TO%201850%5D&fields=link&fields=recordID&fields=timestamp&fields=pwa&fields=cer&fields=fulltext_org&fields=pageUUID&fields=editionUUID&fields=titleUUID&fields=editionId&fields=familyId&fields=newspaper_page&fields=newspaper_edition&fields=lplace&fields=location_name&fields=location_coordinates&max=-1&structure=header&structure=content&format=CSV")
+strik <- read_csv("http://labs.statsbiblioteket.dk/labsapi/api/aviser/export/fields?query=strik%2A%20AND%20py%3A%5B1845%20TO%201850%5D&fields=link&fields=recordID&fields=timestamp&fields=pwa&fields=cer&fields=fulltext_org&fields=pageUUID&fields=editionUUID&fields=titleUUID&fields=editionId&fields=familyId&fields=newspaper_page&fields=newspaper_edition&fields=lplace&fields=location_name&fields=location_coordinates&max=-1&structure=header&structure=content&format=CSV")
 ```
 
 Dette giver os en ny data frame i det panel der hedder "Environment" - Den hedder "strik" og vi kan se, at den har 7810 observation af 16 variable. Klik på "strik"-data framen og inspicer dit data!
@@ -95,8 +95,7 @@ Til sidst gemmer vi ændringer til vores dataframe "strik". Det sker til allersi
 
 ```{r}
 strik %>% 
-  filter(!lplace %in% c("Christianssted", "Charlotte Amalie")) %>% 
-  mutate(lplace = str_replace(lplace, "Århus", "Aarhus")) -> strik
+  filter(!lplace %in% c("Christianssted", "Charlotte Amalie")) -> strik
 ```
 
 Vi kan nu igen tælle lplace og se, at ændringerne er som vi vil have dem (bid mærke i at resultatet falder ud under boksen, da vi *ikke* har angivet `->`, som gemmer resultatet til en nyt element (ligesom vi gjorde før med "strik"):
