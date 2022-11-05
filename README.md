@@ -39,4 +39,5 @@ Er du interesseret? Så download S_K.Rmd og kør den chunk for chunk i din deskt
 * [Cheatsheet til Mediestream-søgning](https://gist.github.com/maxodsbjerg/e2dd484d3c9dcaa9c422a861d6a93f6e#file-denspanskesyge-md)
 
 ## References 
-Silge J, Robinson D (2016). “tidytext: Text Mining and Analysis Using Tidy Data Principles in R.” JOSS, 1(3). doi:10.21105/joss.00037, http://dx.doi.org/10.21105/joss.00037.
+Silge J, Robinson D (2016). “tidytext: Text Mining and Analysis Using Tidy Data Principles in R.” JOSS, 1(3). doi:10.21105/joss.00037, http://dx.doi.org/10.21105/joss.00037.  
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” Journal of Open Source Software, 4(43), 1686. doi:10.21105/joss.01686.
