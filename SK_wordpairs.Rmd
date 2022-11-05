@@ -1,13 +1,9 @@
 ---
-title: "Strik & Kod Ordpar"
-author: "Max Odsbjerg Pedersen"
-date: "2/22/2022"
-output: html_document
----
----
-title: "Strik & Kod"
+title: "Strik & Kod - Ordpar"
 author: "Max Odsbjerg Pedersen"
 date: "1/28/2022"
+bibliography: references.bib
+no-cite: '@tidyverse, @tidytext, @igraph'
 output: 
     html_document:
       df_print: paged
@@ -18,9 +14,9 @@ output:
 
 ```{=html}
 <style>
-    body { background-color: #f7a1bd; }
-    p {color:white;}
-    h1,h2,h3,h4,h5,h6 {color:white;}
+    body { background-color: white; }
+    p {color:black;}
+    h1,h2,h3,h4,h5,h6 {color:#f7a1bd;}
 </style>
 ```
 Dette dokument udgør kodedelen af workshoppen Strik og Kod fra AU Library, Det Kgl. Bibliotek. Workshoppen handler om at trække paralellerne mellem strikning og kodning. "Kodning" forståes i denne sammenhæng som kodebaseret databehandling og lægger sig derfor inden for feltet data science. Som følge af workshoppens afsæt på Arts vil det nærmere blive et text mining eksempel. I text mining er man interesseret i at udtrække informationer af store mængder tekst - hvilket netop interesserer de fleste humanister.
@@ -38,8 +34,6 @@ Vi arbejder i statistik-programmet R, der giver mange muligheder for statistisk 
 ```{r, message=FALSE}
 library(tidyverse)
 library(tidytext)
-library(ggwordcloud)
-library(wordcloud)
 ```
 
 # Data - artikler om strikning
@@ -216,7 +210,7 @@ Herved for vi altså på en overskuelig måde visualiseret de forskellige ords f
 For at gemme grafen bruger vi funktionen `ggsave`, hvor man angiver filnavn og type efterfulgt af bredde og højde og hvilken enhed, samt baggrundsfarven.
 
 ```{r}
-ggsave("strikke_bigrams.png", width = 28, height = 20, units = "cm", bg = "white")
+ggsave("graphics/strikke_bigrams.png", width = 28, height = 20, units = "cm", bg = "white")
 ```
 
 # Fra distant reading til close reading
@@ -232,3 +226,5 @@ strik %>%
 (Psst nr. 2 og dernæst nr 5 er interessante og sjove)
 
 Følgende dokument er baseret på [Tidy Text Mining with R](https://www.tidytextmining.com)-bogen. Særligt kapitlerne 1 om tidyformatet generelt og 4 om n-grams. Bogen kan varmt anbefales til videre læsning og inspiration til andre undersøgelser som text mining kan.
+
+# References

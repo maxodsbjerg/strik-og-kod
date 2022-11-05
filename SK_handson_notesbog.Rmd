@@ -2,6 +2,8 @@
 title: "Strik & Kod"
 author: "Max Odsbjerg Pedersen"
 date: "1/28/2022"
+bibliography: references.bib 
+nocite: '@*'
 output: 
     html_document:
       df_print: paged
@@ -12,9 +14,9 @@ output:
 
 ```{=html}
 <style>
-    body { background-color: #f7a1bd; }
-    p {color:white;}
-    h1,h2,h3,h4,h5,h6 {color:white;}
+    body { background-color: white; }
+    p {color:black;}
+    h1,h2,h3,h4,h5,h6 {color:#f7a1bd;}
 </style>
 ```
 Dette dokument udgør kodedelen af workshoppen Strik og Kod fra AU Library, Det Kgl. Bibliotek. Workshoppen handler om at trække paralellerne mellem strikning og kodning. "Kodning" forståes i denne sammenhæng som kodebaseret databehandling og lægger sig derfor inden for feltet data science. Som følge af workshoppens afsæt på Arts vil det nærmere blive et text mining eksempel. I text mining er man interesseret i at udtrække informationer af store mængder tekst - hvilket netop interesserer de fleste humanister.
@@ -34,7 +36,6 @@ Vi arbejder i statistik-programmet R, der giver mange muligheder for statistisk 
 ```{r, message=FALSE}
 library(tidyverse)
 library(tidytext)
-library(ggwordcloud)
 library(wordcloud)
 ```
 
@@ -162,3 +163,4 @@ strik_tidy %>%
   with(wordcloud(word, n, max.words = 30, colors =  "#f7a1bd"))
 ```
 
+# References
