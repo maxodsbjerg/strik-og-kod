@@ -48,5 +48,6 @@ Er du interesseret? Så download S_K.Rmd og kør den chunk for chunk i din deskt
 Csardi, Gabor, and Tamas Nepusz. 2006. “The Igraph Software Package for Complex Network Research.” *InterJournal* Complex Systems: 1695. https://igraph.org.  
 Fellows, Ian. 2018. *Wordcloud: Word Clouds*. https://cran.r-project.org/web/packages/wordcloud/index.html.
 Silge, Julia, and David Robinson. 2016. “Tidytext: Text Mining and Analysis Using Tidy Data Principles in r.” *JOSS* 1 (3). https://doi.org/10.21105/joss.00037.  
+Pedersen T (2022). ggraph: *An Implementation of Grammar of Graphics for Graphs and Networks*. https://ggraph.data-imaginist.com, https://github.com/thomasp85/ggraph.  
 Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. “Welcome to the tidyverse.” *Journal of Open Source Software* 4 (43): 1686. https://doi.org/10.21105/joss.01686.  
-Pedersen T (2022). ggraph: *An Implementation of Grammar of Graphics for Graphs and Networks*. https://ggraph.data-imaginist.com, https://github.com/thomasp85/ggraph.
+
