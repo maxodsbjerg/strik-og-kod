@@ -14,7 +14,10 @@ Another aim of the workshop is to use the library room as a safe space for learn
 
 No recipe is complete without a picture of the final product as one of the first items. And this is no exception. The final result at the end of this document is the visualisation shown just under this paragraph. It shows the most frequently appearing words in old newspaper articles concerning knitting after all stopwords has been removed (it, that, to, and, in - words which bear no larger meaning).
 
-![](/graphics/strikke_wordcloud.png)
+<p align="center">
+  <img width="460" height="300" src="/graphics/strikke_wordcloud.png">
+</p>
+
 
 ## In class material 
 * [The Knitter’s Geek Code](https://knitty.com/ISSUEspring04/FEATgeekcode.html)
