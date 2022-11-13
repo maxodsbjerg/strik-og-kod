@@ -1,0 +1,164 @@
+---
+title: "Strik & Kod"
+author: "Max Odsbjerg Pedersen"
+date: "1/28/2022"
+bibliography: references.bib 
+nocite: '@*'
+output: 
+    html_document:
+      df_print: paged
+      toc: true
+      toc_depth: 2
+      toc_float: true
+---
+
+```{=html}
+<style>
+    body { background-color: white; }
+    p {color:black;}
+    h1,h2,h3,h4,h5,h6 {color:#f7a1bd;}
+</style>
+```
+This document consists of the coding part of the workshop "Strik og Kod" (Knit and Code) from AU Library at the Royal Danish Library. The workshop is about drawing parallels between knitting and coding. "Coding" is understood here as the connection between coding-based data processing and is therefore within the field of data science. As the workshop is made in the context of the Arts the example will regard text mining. When text mining the primary interest is pulling information out of large corpuses - which is the exact interest of many humanists.
+
+No recipe is complete without a picture of the final product as one of the first items. And this is no exception. The final result at the end of this document is the visualisation shown just under this paragraph. It shows the most frequently appearing words in old newspaper articles concerning knitting after all stopwords has been removed (it, that, to, and, in - words which bear no larger meaning).
+
+![](/graphics/strikke_wordcloud.png)
+
+Knitting words and words which accompany them.
+
+<br>
+
+# Downloading R-packages
+
+We work in the statistic-program R, it affords a lot of possibilities for working with statistic and graphical presentation of the results. R works with packages, these packages add different functionalities to the baseline of R-functions.
+In this workshop the relevant packages are:  
+
+```{r, message=FALSE}
+library(tidyverse)
+library(tidytext)
+library(wordcloud)
+```
+
+# Data – articles about knitting
+
+The first thing we need is some text data. We will here use data from the Danish newspaper collection. The data is supplied by the Royal Danish Library experimental Newspaper-API. Interaction with the API builds on searches on Mediestream which is the Royal Danish Libraries platform searching in the newspaper collection and other. Before using the API it is a good idea to get acquainted with the expanded searching codes of Mediestream. To learn the search tips of Mediestream - <https://www2.statsbiblioteket.dk/mediestream/info/soegetips>
+
+You can also see the actual search code which is used here: 
+<https://gist.github.com/maxodsbjerg/e2dd484d3c9dcaa9c422a861d6a93f6e>
+
+When you feel confident with limiting your searches with search codes you can use this interface to make calls to the Newspaper API: 
+<http://labs.statsbiblioteket.dk/labsapi/api//api-docs?url=/labsapi/api/openapi.yaml> (Choose "aviser(newspapers)/export/fields")
+
+We have in this workshop prepared an API-call that makes the following search which will returns the matches as data:
+
+> strik\* AND py:[1845 TO 1850]
+
+This search gives us articles from the collection in the period 1845 to 1850, that contains words which begins with “strik” (knit) and have all possible endings. And so, we matches such as: “strikke” (knit), “strikning” (knitting), “striktøj”(knit cloth) and “strikketøj” (knitwear). But we also get other words such as “strikt” (strict). 
+
+Searches in Mediestream looks like this: ![](pics/mediestream_strik.png) But the data that the API returns to us is available as files in CSV-format (Comma Separated Values). To gain access to the data the API returns a link. This link contains the file which is our data. For some the link will open the file in your browser and you will then be able to see something like this: ![](pics/api_strik.png) For others the link will download the csv-file to your computer. The most important thing that the API returns is a link to the raw data which matches our search. Without any unnecessary colouring or available interface that we can interact with as in the Mediestream-search above. The raw data can be loaded directly into R and we will afterwards be able to handle the data. Let us get our articles on knitting into R!
+
+## Load data
+
+In the code-block underneath we use the function `read_csv` to read the link we have gotten from the API. What is read by the function gets saved in an element which we will call "strik” (It could also be “knitting_articles_1845_1850”, but we are going to refer to this element many times in the coming coding-blocks, so it is better to be short and precise):
+
+```{r}
+strik <- read_csv("http://labs.statsbiblioteket.dk/labsapi/api/aviser/export/fields?query=strik%2A%20AND%20py%3A%5B1845%20TO%201850%5D&fields=link&fields=timestamp&fields=fulltext_org&fields=familyId&fields=lplace&max=-1&structure=header&structure=content&format=CSV")
+```
+This gives us a new data frame in the panel which is called “Environment” – It is named “strik” and we can see that it contains 7810 observations and 16 variables. Click on the “strik” data frame and inspect your data!
+
+What is especially interesting for us is the column “fulltext_org” – This is where the text from the articles is stored. At first the text will not be easy on the eyes as it is filled with errors, and it is here where you meet the first downside of working with old text: OCR-errors.
+
+To understand why these errors occur it is necessary to turn towards the digitalization. In this process the newspapers are photocopied (either from microfilm or from the original), afterwards a computer algorithm runs through the pages of the newspapers. The computer algorithm does two things: 1. Segmenting the articles – with other words the algorithm guesses which body belongs to which headline. 2. Doing text recognition so that the text becomes digital and becomes searchable. This is also called OCR (Optical Character Recognition).
+
+This algorithm has been developed with modern newspapers in mind and is therefore pretty precise when used on more recent newspapers (from 1910 until today). If the algorithm is used on older material the quality of the digitalization dwindles. This is in part due to layout of older newspapers differ from modern layouts. One of the big problems are that the text recognition is bad. This is a result of the typeface used in old newspapers which used fraktur when pressing newspapers. Some will recognize the typeface as gothic letters or curly letters. ![](pics/fraktur.png) Our hope here is that the data is so large that we can gather something interesting despite the OCR-errors.
+
+# Initial analysis – and a bit of data tidying
+
+Another column is “lplace” which indicates where the newspaper was released. 
+We first indicate what data frame we want to. Afterwards we use the so-called pipe, `%>%`, to send the data on to a function. Here we use `count`, that needs to be told which column it should count. So, after counting “lplace” we will be able to see how our material is spread out geographically: 
+
+```{r}
+strik %>% 
+  count(lplace, sort = TRUE)
+```
+
+We can see in the result of our counting and not surprisingly most of the material is from Copenhagen which was the largest city by far and had the most newspapers. Other interesting things becomes gets revealed by the counting. “Charlotte Amalie” and “Christianssted” are cities that back then were a part of the Danish Virgin Islands. Newspapers from these cities are mostly in English and will disturb the text mining of the Danish articles on knitting. We will therefore sort out newspapers from these locations.
+
+Just as in the coding block before we begin by calling the data frame, we are interested in working with. Using the pipe, `%>%`, we send the data to the function, `filter`, which filters the data on the “lplace” column. Notice that we write an exclamation mark (`!`) infront of “lplace!!! This makes it so that we filter “Christianssted” and “Charlotte Amalie” out. Without the exclamation mark we would only get the texts from the two cities!
+
+We will then pipe (`%>%`) the data on (now without the two Danish Virgin Islands) to a new function. It is a good idea to think of the pipe as a tube through which we pour the data into a new function that makes changes to the data and the results of the function can then be piped further along to any number of functions.
+
+To wrap this up we save the changes to our data frame “strik”. This is done as the final step by writing `-> strik`. If this is not done the result of the code is only displayed underneath the coding block as we observed above when we talked about “lplace”.
+
+```{r}
+strik %>% 
+  filter(!lplace %in% c("Christianssted", "Charlotte Amalie")) -> strik
+```
+
+It is now possible for us to count lplace and see that the result of the changes which we have made act as intended (notice that the results are displayed underneath the coding block since we do not use `->`):
+
+```{r}
+strik %>% 
+  count(lplace, sort = TRUE)
+```
+
+# The Text mining task
+
+The data processing will be based on [Tidy Data-princippet](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) as it is implemented in the tidytext-package. The method is based on taking text and splitting it up into single words. By doing this only one word will appear in each row in the dataset. 
+
+The next thing that will happen is that we will convert the data into the aforementioned tidytext format, where each word is displayed in its own row, which is done with the function, `unnest_tokens`. We will save the result of this transformation in “strik_tidy” which we will then analyse.
+
+```{r}
+strik %>% 
+  unnest_tokens(word, fulltext_org) -> strik_tidy
+```
+
+Let us just print out the new data frame to see how the tidytext format looks in practice. This is achieved by writing the name of the data frame:
+
+```{r}
+strik_tidy
+```
+
+If we flip through the columns (with the little black arrow in the top-right corner) the last column will now be “word” which only contains single words.
+
+# Analysis 
+
+## Wordcloud
+
+To get an overview of our dataset we will begin by counting the most used words in the article about knitting in the period 1845 to 1850:
+
+```{r}
+strik_tidy %>% 
+  count(word, sort = TRUE)
+```
+
+<br> To no one’s surprise most frequent words in the dataset is the grammatical particles. One way to negate these words is by using a stopword list which can be used to remove unwanted words:
+
+```{r message=FALSE}
+stopord <- read_csv("https://gist.githubusercontent.com/maxodsbjerg/4d1e3b1081ebba53a8d2c3aae2a1a070/raw/e1f63b4c81c15bb58a54a2f94673c97d75fe6a74/stopord_18.csv")
+```
+
+<br>
+
+We will try to count the words again but this time include the function, `anti_join()`, to remove all the stopwords from the data:
+
+```{r}
+strik_tidy %>% 
+  anti_join(stopord) %>% 
+  count(word, sort = TRUE) 
+```
+
+<br> We can already see quite a few interesting words. Something points towards a connection between maids that are seeking “condition” which back in the day meant a “service position” or a space of sorts. We can also see an OCR-error “eondition” and another spelling of condition, “kondition”.
+
+But a list is a little boring to look at. Could we perhaps create a beautiful wordcloud? Of course we can!
+
+```{r}
+strik_tidy %>% 
+  anti_join(stopord) %>% 
+  count(word, sort = TRUE) %>% 
+  with(wordcloud(word, n, max.words = 30, colors =  "#f7a1bd"))
+```
+
+# References
+
