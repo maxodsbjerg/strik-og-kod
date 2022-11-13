@@ -8,7 +8,9 @@
 * [Moving on after the workshop]()
 
 ## Introduction
-This repository hold the materials used in the workshop "Strik og Kod" (Knit and Code) from AU Library at the Royal Danish Library. The workshop is about drawing parallels between knitting and coding. "Coding" is understood here as the connection between coding-based data processing and is therefore within the field of data science. As the workshop is made in the context of the Arts the example will regard text mining. When text mining the primary interest is pulling information out of large corpuses - which is the exact interest of many humanists.
+This repository hold the materials used in the workshop "Strik og Kod" (Knit and Code) from AU Library at the Royal Danish Library. The workshop is about drawing parallels between knitting and coding. "Coding" is in our context understood as coding-based data processing and therefore  lies within the field of data science. As the workshop is made in context of the humanities the example used will be text mining. When text mining the primary interest is pulling information out of large corpora - which is the exact interest of many humanists.
+
+Another aim of the workshop is to use the library room as a safe space for learning something that is considered incomprehensible by many humanist students and scholars. By using the knitting parallel with hope to defuse this common consideration of coding being off limit for humanists. By doing this in the library instead of the normal class room we hope to create a secure environment where no questions are stupid and the pace makes sure everyone is following along
 
 No recipe is complete without a picture of the final product as one of the first items. And this is no exception. The final result at the end of this document is the visualisation shown just under this paragraph. It shows the most frequently appearing words in old newspaper articles concerning knitting after all stopwords has been removed (it, that, to, and, in - words which bear no larger meaning).
 
