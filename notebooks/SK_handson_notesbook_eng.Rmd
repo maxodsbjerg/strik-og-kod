@@ -52,7 +52,7 @@ When you feel confident with limiting your searches with search codes you can us
 
 We have in this workshop prepared an API-call that makes the following search which will returns the matches as data:
 
-> strik\* AND py:[1845 TO 1850]
+> strik\* AND py:[1845 TO 1850] NOT familyId:(stcroixavisdvi OR sanctthomaetidendedvi)
 
 This search gives us articles from the collection in the period 1845 to 1850, that contains words which begins with “strik” (knit) and have all possible endings. And so, we matches such as: “strikke” (knit), “strikning” (knitting), “striktøj”(knit cloth) and “strikketøj” (knitwear). But we also get other words such as “strikt” (strict). 
 
@@ -63,7 +63,7 @@ Searches in Mediestream looks like this: ![](pics/mediestream_strik.png) But the
 In the code-block underneath we use the function `read_csv` to read the link we have gotten from the API. What is read by the function gets saved in an element which we will call "strik” (It could also be “knitting_articles_1845_1850”, but we are going to refer to this element many times in the coming coding-blocks, so it is better to be short and precise):
 
 ```{r}
-strik <- read_csv("http://labs.statsbiblioteket.dk/labsapi/api/aviser/export/fields?query=strik%2A%20AND%20py%3A%5B1845%20TO%201850%5D&fields=link&fields=timestamp&fields=fulltext_org&fields=familyId&fields=lplace&max=-1&structure=header&structure=content&format=CSV")
+strik <- read_csv("http://labs.statsbiblioteket.dk/labsapi/api/aviser/export/fields?query=strik%2A%20AND%20py%3A%5B1845%20TO%201850%5D%20NOT%20familyId%3A%28stcroixavisdvi%20OR%20sanctthomaetidendedvi%29&fields=link&fields=timestamp&fields=fulltext_org&fields=familyId&fields=lplace&max=-1&structure=header&structure=content&format=CSV")
 ```
 This gives us a new data frame in the panel which is called “Environment” – It is named “strik” and we can see that it contains 7810 observations and 16 variables. Click on the “strik” data frame and inspect your data!
 
@@ -83,25 +83,8 @@ strik %>%
   count(lplace, sort = TRUE)
 ```
 
-We can see in the result of our counting and not surprisingly most of the material is from Copenhagen which was the largest city by far and had the most newspapers. Other interesting things becomes gets revealed by the counting. “Charlotte Amalie” and “Christianssted” are cities that back then were a part of the Danish Virgin Islands. Newspapers from these cities are mostly in English and will disturb the text mining of the Danish articles on knitting. We will therefore sort out newspapers from these locations.
+We can see in the result of our counting and not surprisingly most of the material is from Copenhagen which was the largest city by far and had the most newspapers.
 
-Just as in the coding block before we begin by calling the data frame, we are interested in working with. Using the pipe, `%>%`, we send the data to the function, `filter`, which filters the data on the “lplace” column. Notice that we write an exclamation mark (`!`) infront of “lplace!!! This makes it so that we filter “Christianssted” and “Charlotte Amalie” out. Without the exclamation mark we would only get the texts from the two cities!
-
-We will then pipe (`%>%`) the data on (now without the two Danish Virgin Islands) to a new function. It is a good idea to think of the pipe as a tube through which we pour the data into a new function that makes changes to the data and the results of the function can then be piped further along to any number of functions.
-
-To wrap this up we save the changes to our data frame “strik”. This is done as the final step by writing `-> strik`. If this is not done the result of the code is only displayed underneath the coding block as we observed above when we talked about “lplace”.
-
-```{r}
-strik %>% 
-  filter(!lplace %in% c("Christianssted", "Charlotte Amalie")) -> strik
-```
-
-It is now possible for us to count lplace and see that the result of the changes which we have made act as intended (notice that the results are displayed underneath the coding block since we do not use `->`):
-
-```{r}
-strik %>% 
-  count(lplace, sort = TRUE)
-```
 
 # The Text mining task
 
