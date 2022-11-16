@@ -33,6 +33,7 @@ No recipe is complete without a picture of the final product as one of the first
 * [Import your own text files to R!](https://github.com/maxodsbjerg/ImportingTextFiles)
 * [Danish Newspaper API](http://labs.statsbiblioteket.dk/labsapi/api//api-docs?url=/labsapi/api/openapi.yaml)
 * [Cheatsheet for searching Mediestream](https://gist.github.com/maxodsbjerg/e2dd484d3c9dcaa9c422a861d6a93f6e#file-denspanskesyge-md)
+* [Overview of public APIs by theme](https://github.com/public-apis/public-apis)
 
 ### Inspiration
 * [Knit, purl and upload: new technologies, digital mediations and the experience of leisure](https://www.tandfonline.com/doi/full/10.1080/02614367.2012.723730)
