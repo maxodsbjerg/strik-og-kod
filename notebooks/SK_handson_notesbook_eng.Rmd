@@ -73,17 +73,6 @@ To understand why these errors occur it is necessary to turn towards the digital
 
 This algorithm has been developed with modern newspapers in mind and is therefore pretty precise when used on more recent newspapers (from 1910 until today). If the algorithm is used on older material the quality of the digitalization dwindles. This is in part due to layout of older newspapers differ from modern layouts. One of the big problems are that the text recognition is bad. This is a result of the typeface used in old newspapers which used fraktur when pressing newspapers. Some will recognize the typeface as gothic letters or curly letters. ![](pics/fraktur.png) Our hope here is that the data is so large that we can gather something interesting despite the OCR-errors.
 
-# Initial analysis – and a bit of data tidying
-
-Another column is “lplace” which indicates where the newspaper was released. 
-We first indicate what data frame we want to. Afterwards we use the so-called pipe, `%>%`, to send the data on to a function. Here we use `count`, that needs to be told which column it should count. So, after counting “lplace” we will be able to see how our material is spread out geographically: 
-
-```{r}
-strik %>% 
-  count(lplace, sort = TRUE)
-```
-
-We can see in the result of our counting and not surprisingly most of the material is from Copenhagen which was the largest city by far and had the most newspapers.
 
 
 # The Text mining task
